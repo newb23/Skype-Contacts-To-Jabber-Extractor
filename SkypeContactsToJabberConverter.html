@@ -7,18 +7,15 @@
     <style type="text/css">
     </style>
 
-    <title>Skype Contacts To Jabber Converter</title>
+    <title>Skype Contacts To Jabber Exporter</title>
 
     <script type='text/javascript'>
         window.onload = function () {
-
             $('#btnInsertGroup').click(function () {
                 var GroupName = $('#txtGroupName').val();
-                //var GroupElement = $('#txtGroupName').val() + '<button>x</button>';
                 if (GroupName.length) {
                     str = '<?xml version="1.0" encoding="utf-8"?>\n'
                         + '  <buddylist>\n';
-                    //str += result.innerText.substring(result.innerText.indexOf('<group>'), result.innerText.indexOf('</buddylist>'));
                     str += txtResult.value.substring(txtResult.value.indexOf('<group>'), txtResult.value.indexOf('</buddylist>'));
                     str += '    <group>\n'
                     + '      <gname>' + GroupName + '</gname>\n'
@@ -28,10 +25,8 @@
                     ContactsNames.split(';').forEach(function (item) {
                         var ContactName = item + '<button>x</button>';
                         if (item.length) {
-                            //$('<li />', { html: ContactName }).appendTo('ul#' + GroupName)
                             str += '      <user>\n'
                                     + '        <uname>' + item + '</uname>\n'
-                                    //+'<fname>' + item +'</fname>\n'
                                     + '      </user>\n'
                             importedCount++;
                         }
@@ -43,7 +38,6 @@
                 $('<ul />', { id: GroupName }).appendTo('ul.GroupsList');
 
                 str += '  </buddylist>';
-                //document.getElementById('result').innerText = str;
                 document.getElementById('txtResult').value = str;
             });
 
@@ -78,7 +72,6 @@
     <button id="btnInsertGroup" width='30px'>Add</button>
     <button onclick="ExportToXML();">Export</button>
     <ul class="GroupsList"></ul>
-    <!--<div id='result'></div>-->
     <textarea id='txtResult' style="width: 600px; height: 500px;"></textarea>
 </body>
 </html>

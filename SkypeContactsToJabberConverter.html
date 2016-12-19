@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <style type="text/css">
+    </style>
+
+    <title>Skype Contacts To Jabber Converter</title>
+
+    <script type='text/javascript'>
+        window.onload = function () {
+
+            $('#btnInsertGroup').click(function () {
+                var GroupName = $('#txtGroupName').val();
+                //var GroupElement = $('#txtGroupName').val() + '<button>x</button>';
+                if (GroupName.length) {
+                    str = '<?xml version="1.0" encoding="utf-8"?>\n'
+                        + '  <buddylist>\n';
+                    //str += result.innerText.substring(result.innerText.indexOf('<group>'), result.innerText.indexOf('</buddylist>'));
+                    str += txtResult.value.substring(txtResult.value.indexOf('<group>'), txtResult.value.indexOf('</buddylist>'));
+                    str += '    <group>\n'
+                    + '      <gname>' + GroupName + '</gname>\n'
+
+                    var ContactsNames = $('#txtGroupContacts').val();
+                    var importedCount = 0;
+                    ContactsNames.split(';').forEach(function (item) {
+                        var ContactName = item + '<button>x</button>';
+                        if (item.length) {
+                            //$('<li />', { html: ContactName }).appendTo('ul#' + GroupName)
+                            str += '      <user>\n'
+                                    + '        <uname>' + item + '</uname>\n'
+                                    //+'<fname>' + item +'</fname>\n'
+                                    + '      </user>\n'
+                            importedCount++;
+                        }
+                    });
+                    str += '    </group>\n'
+                }
+
+                $('<li />', { html: GroupName + ' - (' + importedCount + ' Imported)' }).appendTo('ul.GroupsList');
+                $('<ul />', { id: GroupName }).appendTo('ul.GroupsList');
+
+                str += '  </buddylist>';
+                //document.getElementById('result').innerText = str;
+                document.getElementById('txtResult').value = str;
+            });
+
+            $('ul').on('click', 'button', function (el) {
+                $(this).parent().remove()
+            });
+
+        }
+        function ExportToXML() {
+            var xmltext = document.getElementById('txtResult').value;
+            var pom = document.createElement('a');
+
+            var filename = "SkypeContacts.xml";
+            var pom = document.createElement('a');
+            var bb = new Blob([xmltext], { type: 'text/plain' });
+
+            pom.setAttribute('href', window.URL.createObjectURL(bb));
+            pom.setAttribute('download', filename);
+
+            pom.dataset.downloadurl = ['text/plain', pom.download, pom.href].join(':');
+            pom.draggable = true;
+            pom.classList.add('dragout');
+
+            pom.click();
+        }
+    </script>
+</head>
+
+<body>
+    <input typr='text' id='txtGroupName' />
+    <input typr='text' id='txtGroupContacts' />
+    <button id="btnInsertGroup" width='30px'>Add</button>
+    <button onclick="ExportToXML();">Export</button>
+    <ul class="GroupsList"></ul>
+    <!--<div id='result'></div>-->
+    <textarea id='txtResult' style="width: 600px; height: 500px;"></textarea>
+</body>
+</html>

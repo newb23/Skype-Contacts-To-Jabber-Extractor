@@ -18,19 +18,23 @@ Right click on your Skype group header and click Copy
 
 ### Step 2:
 
-Open [Skype To Jabber Exporter](http://htmlpreview.github.io/?https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/blob/master/SkypeContactsToJabberConverter.html) in any browser, then Enter the group filed and paste the copied group in the contacts field, then click Add
+Open [Skype To Jabber Exporter](http://htmlpreview.github.io/?https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/blob/master/SkypeContactsToJabberConverter.html) in any browser
 
-### Step 3:
+### Step 3
 
-When you finish adding your groups click Export, an XML file named "SkypeContacts.xml" will be downloaded with your groups and contacts
+Enter the group name and paste the copied group contacts in the contacts field, then click Add (Repeat this step for each group)
 
 ### Step 4:
+
+When you finish adding your groups you can copy the generated XML yourself or click Export to download an XML file named "SkypeContacts.xml" with your converted groups and contacts
+
+### Step 5:
 
 Open Jabber and login with your account, then open the importer and choose the xml file we created and downloaded, then click import
 
 ![Importing Contacts to Jabber](https://raw.githubusercontent.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/master/Jabber%20ScreenShot.png)
 
-### Step 5:
+### Step 6:
 Jabber will start importing your contacts and will inform you when finished, then you will find all your contacts in your Jabber account, mission accomplished :)
 
 ![Skype contacts imported successfully](https://raw.githubusercontent.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/master/Jabber-Success.png)

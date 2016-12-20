@@ -15,8 +15,7 @@ Right click on your Skype group header and click Copy
 
 ### Step 2:
 
-Open the Extractor By Downloading the repo and open SkypeContactsToJabberConverter.html in any browser,
-then Enter the group filed and paste the copied group in the contacts field, then click Add
+Open the Extractor [SkypeToJabberExporter](http://htmlpreview.github.io/?https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/blob/master/SkypeContactsToJabberConverter.html) in any browser, then Enter the group filed and paste the copied group in the contacts field, then click Add
 
 ### Step 3:
 

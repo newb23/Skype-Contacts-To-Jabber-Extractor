@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+## Why?
 
-You can use the [editor on GitHub](https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Skype (or SKype for Bussiness, but I will be using just Skype) does not allow you to export you groups and contacts to easly back them up or transfer to another Messaging app, I needed to transfer my Contacts and groups to Cisco Jabber from Skype, because my company was moving to Jabber, So I created this simple Exporter for just that, I tried to use the online skype API to make the Export automatically but the company Skype server didn't allow an API, If you have the same case you will find this tool very helpful and saves at least 90% of you time.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+## How To Use
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+You just need to follow these simple steps:
 
-```markdown
-Syntax highlighted code block
+### Step 1:
 
-# Header 1
-## Header 2
-### Header 3
+Right click on you Skype group header and click "Copy"
 
-- Bulleted
-- List
+[Copy contacts group from skype](https://raw.githubusercontent.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/master/S4B_ScreenShoot.png)
 
-1. Numbered
-2. List
+### Step 2:
 
-**Bold** and _Italic_ and `Code` text
+open the Extractor By Downloading the repo and open SkypeContactsToJabberConverter.html in any browser,
+then Enter the group Name and paste the copied group in the Contacts name, then click Add
 
-[Link](url) and ![Image](src)
-```
+### Step 3:
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+when you finish adding you groups click Export, an XML file named "SkypeContacts.xml" will be downloaded with you groups and contacts
 
-### Jekyll Themes
+### Step 4:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Open Jabber and login with your account, then open the importer and choose the xml file we created and downloaded, then click import
+[Importing Contacts to Jabber](https://raw.githubusercontent.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/master/Jabber%20ScreenShot.png)
 
-### Support or Contact
+### Step 5:
+Jabber will start importing you contacts and will inform you when finished, then you will find all your contacts in you Jabber acount,
+missin accomplished :)
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[Skype contacts imported successfully](https://raw.githubusercontent.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/master/Jabber-Success.png)

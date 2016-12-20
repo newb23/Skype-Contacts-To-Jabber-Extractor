@@ -11,7 +11,7 @@ GitHub: https://github.com/Fahd-Harb
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <style type="text/css">
         body {
-            padding: 0px 0 20px 0px;
+            padding: 0px 0 2px 0px;
             margin: 0px;
             font: 14px/1.5 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
             color: #f0e7d5;
@@ -22,8 +22,57 @@ GitHub: https://github.com/Fahd-Harb
 
         .imported-list-container {
             overflow: auto;
-            height: 500px;
-            width: 250px;
+            text-align: left;
+            height: 400px;
+        }
+
+        .text-input {
+            display: inline-block;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            padding: 10px 20px;
+            margin: 2px 0 2px 0;
+            border: 1px solid #b7b7b7;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            font: normal 16px/normal "Times New Roman", Times, serif;
+            color: rgba(0,142,198,1);
+            -o-text-overflow: clip;
+            text-overflow: clip;
+            background: rgba(252,252,252,1);
+            -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+            box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+            text-shadow: 1px 1px 0 rgba(255,255,255,0.66);
+            -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+            -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+            -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+            transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+        }
+
+        .button {
+            display: inline-block;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            box-sizing: content-box;
+            cursor: pointer;
+            padding: 10px 20px;
+            margin: 2px 1px 2px 1px;
+            border: 1px solid #018dc4;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            font: normal 16px/normal "Times New Roman", Times, serif;
+            color: rgba(255,255,255,0.9);
+            -o-text-overflow: clip;
+            text-overflow: clip;
+            background: #0199d9;
+            -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+            box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+            text-shadow: -1px -1px 0 rgba(15,73,168,0.66);
+            -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+            -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+            -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+            transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
         }
     </style>
 
@@ -35,7 +84,7 @@ GitHub: https://github.com/Fahd-Harb
             $('#btnInsertGroup').click(function () {
                 var GroupName = $('#txtGroupName').val();
                 //var GroupElement = $('#txtGroupName').val() + '<button>x</button>';
-                if (GroupName.length) {
+                if (GroupName.length > 0) {
                     var PrevImportedContacts = txtResult.value.substring(txtResult.value.indexOf('<group>'), txtResult.value.indexOf('</buddylist>'));
                     str = '<?xml version="1.0" encoding="utf-8"?>\n'
                         + '  <buddylist>\n';
@@ -58,12 +107,10 @@ GitHub: https://github.com/Fahd-Harb
                         }
                     });
                     str += '    </group>\n'
+                    str += '  </buddylist>';
+                    $('<li />', { html: GroupName + ' - (' + importedCount + ' Imported)' }).appendTo('ul.GroupsList');
+                    $('<ul />', { id: GroupName }).appendTo('ul.GroupsList');
                 }
-
-                $('<li />', { html: GroupName + ' - (' + importedCount + ' Imported)' }).appendTo('ul.GroupsList');
-                $('<ul />', { id: GroupName }).appendTo('ul.GroupsList');
-
-                str += '  </buddylist>';
                 //document.getElementById('result').innerText = str;
                 document.getElementById('txtResult').value = str;
             });
@@ -74,48 +121,55 @@ GitHub: https://github.com/Fahd-Harb
 
         }
         function ExportToXML() {
-            var xmltext = document.getElementById('txtResult').value;
-            var pom = document.createElement('a');
+            var ImportedContacts = $('#txtResult').val();
+            if (ImportedContacts.length) {
+                var pom = document.createElement('a');
 
-            var filename = "SkypeContacts.xml";
-            var pom = document.createElement('a');
-            var bb = new Blob([xmltext], { type: 'text/plain' });
+                var filename = "SkypeContacts.xml";
+                var pom = document.createElement('a');
+                var bb = new Blob([ImportedContacts], { type: 'text/plain' });
 
-            pom.setAttribute('href', window.URL.createObjectURL(bb));
-            pom.setAttribute('download', filename);
+                pom.setAttribute('href', window.URL.createObjectURL(bb));
+                pom.setAttribute('download', filename);
 
-            pom.dataset.downloadurl = ['text/plain', pom.download, pom.href].join(':');
-            pom.draggable = true;
-            pom.classList.add('dragout');
+                pom.dataset.downloadurl = ['text/plain', pom.download, pom.href].join(':');
+                pom.draggable = true;
+                pom.classList.add('dragout');
 
-            pom.click();
+                pom.click();
+            }
         }
     </script>
 </head>
 
 <body>
-    <label>Group Name :</label>
-    <input style="width:300px;" type='text' id='txtGroupName' />
-    <br />
-    <label>Contacts :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input style="width:300px;" type='text' id='txtGroupContacts' />
-    <br />
-    <button id="btnInsertGroup" width='30px'>Add</button>
-    <button onclick="ExportToXML();">Export</button>
-    <table>
-        <tbody>
-            <tr>
-                <td>
-                    <textarea id="txtResult" style="width: 600px;height: 500px;background-color: #b6b6b6;"></textarea>
-                </td>
-                <td>
-                    <div class="imported-list-container">
-                        <ul class="GroupsList"></ul>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <!--<div id='result'></div>-->
+    <div style="text-align:center;padding-top:20px;">
+        <label>Group &nbsp;&nbsp;&nbsp; </label>
+        <input class="text-input" placeholder="Enter Group Name" style="width:300px;" type='text' id='txtGroupName' />
+        <br />
+        <label>Contacts</label>
+        <input class="text-input" placeholder="Enter Conatcts" style="width:300px;" type='text' id='txtGroupContacts' />
+        <br />
+        <button id="btnInsertGroup" class="button" width='30px'>Add</button>
+        <button class="button" onclick="ExportToXML();">Export</button>
+        <br />
+        <table style="width:100%;display:inline-block;">
+            <tbody>
+                <tr>
+                    <td style="width: 25%;"></td>
+                    <td style="width: 50%;">
+                        <textarea id="txtResult" class="text-input" placeholder="Imported Contacts XML" style="width: 600px;height: 400px;"></textarea>
+                    </td>
+                    <td style="width: 25%;">
+                        <div class="imported-list-container">
+                            Imported Groups Status:
+                            <ul class="GroupsList"></ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--<div id='result'></div>-->
+    </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-##To go to the Exporter click [Here](http://htmlpreview.github.io/?https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/blob/master/SkypeContactsToJabberConverter.html)
+## To go to the Exporter click [Here](http://htmlpreview.github.io/?https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/blob/master/SkypeContactsToJabberConverter.html)
 
 ## Why?
 

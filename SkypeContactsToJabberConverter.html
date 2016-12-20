@@ -1,36 +1,58 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
 Author: Fahd Harb
 GitHub: https://github.com/Fahd-Harb
 -->
+
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <style type="text/css">
+        body {
+            padding: 0px 0 20px 0px;
+            margin: 0px;
+            font: 14px/1.5 "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #f0e7d5;
+            font-weight: normal;
+            background: #252525;
+            background-attachment: fixed !important;
+        }
+
+        .imported-list-container {
+            overflow: auto;
+            height: 500px;
+            width: 250px;
+        }
     </style>
 
-    <title>Skype Contacts To Jabber Exporter</title>
+    <title>Skype Contacts To Jabber Converter</title>
 
     <script type='text/javascript'>
         window.onload = function () {
+
             $('#btnInsertGroup').click(function () {
                 var GroupName = $('#txtGroupName').val();
+                //var GroupElement = $('#txtGroupName').val() + '<button>x</button>';
                 if (GroupName.length) {
+                    var PrevImportedContacts = txtResult.value.substring(txtResult.value.indexOf('<group>'), txtResult.value.indexOf('</buddylist>'));
                     str = '<?xml version="1.0" encoding="utf-8"?>\n'
                         + '  <buddylist>\n';
-                    str += txtResult.value.substring(txtResult.value.indexOf('<group>'), txtResult.value.indexOf('</buddylist>'));
-                    str += '    <group>\n'
-                    + '      <gname>' + GroupName + '</gname>\n'
+                    //str += result.innerText.substring(result.innerText.indexOf('<group>'), result.innerText.indexOf('</buddylist>'));
+                    str += (PrevImportedContacts.length <= 0 ? '  ' + PrevImportedContacts : '    ' + PrevImportedContacts);
+                    str += '  <group>\n'
+                        + '      <gname>' + GroupName + '</gname>\n'
 
                     var ContactsNames = $('#txtGroupContacts').val();
                     var importedCount = 0;
                     ContactsNames.split(';').forEach(function (item) {
-                        var ContactName = item + '<button>x</button>';
+                        //var ContactName = item + '<button>x</button>';
                         if (item.length) {
+                            //$('<li />', { html: ContactName }).appendTo('ul#' + GroupName)
                             str += '      <user>\n'
                                     + '        <uname>' + item + '</uname>\n'
+                                    //+'<fname>' + item +'</fname>\n'
                                     + '      </user>\n'
                             importedCount++;
                         }
@@ -42,6 +64,7 @@ GitHub: https://github.com/Fahd-Harb
                 $('<ul />', { id: GroupName }).appendTo('ul.GroupsList');
 
                 str += '  </buddylist>';
+                //document.getElementById('result').innerText = str;
                 document.getElementById('txtResult').value = str;
             });
 
@@ -71,11 +94,28 @@ GitHub: https://github.com/Fahd-Harb
 </head>
 
 <body>
-    <input typr='text' id='txtGroupName' />
-    <input typr='text' id='txtGroupContacts' />
+    <label>Group Name :</label>
+    <input style="width:300px;" type='text' id='txtGroupName' />
+    <br />
+    <label>Contacts :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input style="width:300px;" type='text' id='txtGroupContacts' />
+    <br />
     <button id="btnInsertGroup" width='30px'>Add</button>
     <button onclick="ExportToXML();">Export</button>
-    <ul class="GroupsList"></ul>
-    <textarea id='txtResult' style="width: 600px; height: 500px;"></textarea>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <textarea id="txtResult" style="width: 600px;height: 500px;background-color: #b6b6b6;"></textarea>
+                </td>
+                <td>
+                    <div class="imported-list-container">
+                        <ul class="GroupsList"></ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!--<div id='result'></div>-->
 </body>
 </html>

@@ -1,5 +1,6 @@
 ## To go to the Exporter click [Here](http://htmlpreview.github.io/?https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/blob/master/SkypeContactsToJabberConverter.html)
 <br>
+
 ## Why?
 
 Skype (or Skype for Bussiness, but I will be using just Skype) does not allow you to export your groups and contacts to easly back them up or transfer to another Messaging app, I needed to transfer my Contacts and groups to Cisco Jabber from Skype, because my company was moving to Jabber, So I created this simple Exporter for just that, I tried to use the online skype API to make the Export automatically but the company Skype server didn't allow an API, If you have the same case you will find this tool very helpful and saves at least 90% of your time.
@@ -17,7 +18,7 @@ Right click on your Skype group header and click Copy
 
 ### Step 2:
 
-Open the Extractor [SkypeToJabberExporter](http://htmlpreview.github.io/?https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/blob/master/SkypeContactsToJabberConverter.html) in any browser, then Enter the group filed and paste the copied group in the contacts field, then click Add
+Open [Skype To Jabber Exporter](http://htmlpreview.github.io/?https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/blob/master/SkypeContactsToJabberConverter.html) in any browser, then Enter the group filed and paste the copied group in the contacts field, then click Add
 
 ### Step 3:
 

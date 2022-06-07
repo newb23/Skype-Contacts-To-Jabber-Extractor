@@ -1,4 +1,4 @@
-## To go to the Exporter click [Here](http://htmlpreview.github.io/?https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/blob/master/SkypeContactsToJabberConverter.html)
+## To go to the Exporter click [Here](https://newb23.github.io/Skype-Contacts-To-Jabber-Extractor/)
 <br>
 
 ## Why?
@@ -18,7 +18,7 @@ Right click on your Skype group header and click Copy
 
 ### Step 2:
 
-Open [Skype To Jabber Exporter](http://htmlpreview.github.io/?https://github.com/Fahd-Harb/Skype-Contacts-To-Jabber-Extractor/blob/master/SkypeContactsToJabberConverter.html) in any browser
+Open [Skype To Jabber Exporter](https://newb23.github.io/Skype-Contacts-To-Jabber-Extractor/) in any browser
 
 ### Step 3
 

@@ -1,4 +1,4 @@
-## To go to the Exporter click [Here](https://newb23.github.io/Skype-To-Jabber-Contact-Converter/)
+## Go to the converter [here](https://newb23.github.io/Skype-To-Jabber-Contact-Converter/)
 <br>
 
 ## Why?
